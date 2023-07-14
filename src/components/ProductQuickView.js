@@ -98,7 +98,7 @@ const ProductQuickView = ({ productId }) => {
             sx={{ height: 500, width: 500, flex: 3 }}
           >
             <Typography variant="h5">
-              ৳{product.price} /{product.unit}
+              ৳{product.price} {product.unit ? `/${product.unit}` : ""}
             </Typography>
             <Typography variant="subtitle2">
               only {product.inStock} left In stock

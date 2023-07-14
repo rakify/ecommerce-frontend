@@ -72,12 +72,7 @@ const Product = () => {
   return (
     <>
       <Container maxWidth="lg">
-        <Stack
-          direction="column"
-          // sx={{ flexDirection: { xs: "column", sm: "row" } }}
-          spacing={2}
-          justifyContent="space-between"
-        >
+        <Stack direction="column" spacing={2} justifyContent="space-between">
           <Typography variant="h4">{product.title}</Typography>
 
           <Typography variant="subtitle2">ID: {product._id}</Typography>
@@ -107,7 +102,7 @@ const Product = () => {
             sx={{ height: 500, width: 500, flex: 3 }}
           >
             <Typography variant="h5">
-              ৳{product.price} /{product.unit}
+              ৳{product.price} {product.unit ? `/${product.unit}` : ""}
             </Typography>
             <Typography variant="subtitle2">
               only {product.inStock} left In stock
