@@ -25,10 +25,6 @@ import {
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
-
 const Cart = () => {
   const dispatch = useDispatch();
   const id = useSelector((state) => state.user.currentUser?._id);
@@ -82,7 +78,7 @@ const Cart = () => {
     setTotalSaved(totalMarketPrice);
   }, [cart]);
 
-  const handleQuantity = (
+  const handleQuantity = async (
     type,
     productId,
     title,
@@ -103,18 +99,22 @@ const Cart = () => {
       seller: seller,
       hasMerchantReturnPolicy: hasMerchantReturnPolicy,
     };
+
     if (type === "dec") {
       productInfo.quantity = -1;
-      addToCart(id, productInfo, dispatch);
-      setLoading(false);
     } else if (type === "inc") {
       productInfo.quantity = 1;
-      addToCart(id, productInfo, dispatch);
-      setLoading(false);
     } else if (type === "remove") {
       productInfo.quantity = -quantity;
-      addToCart(id, productInfo, dispatch);
+    }
+
+    try {
+      await addToCart(id, productInfo, dispatch);
       setLoading(false);
+    } catch (error) {
+      // Handle any error that occurs during addToCart
+      setLoading(false);
+      console.error(error);
     }
   };
 
