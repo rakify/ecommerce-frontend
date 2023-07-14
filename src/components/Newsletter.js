@@ -1,5 +1,4 @@
-import styled from "@emotion/styled";
-import { Button, Stack, TextField, Typography, InputBase } from "@mui/material";
+import { Button, Stack, Typography } from "@mui/material";
 
 const Newsletter = () => {
   return (

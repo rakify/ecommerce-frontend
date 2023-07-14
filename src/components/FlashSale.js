@@ -1,4 +1,4 @@
-import { Box, Grid, Paper, Stack, styled, Typography } from "@mui/material";
+import { Box, Grid, Paper, styled, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import FSProduct from "./FSProduct";
 

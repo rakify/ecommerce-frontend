@@ -14,17 +14,11 @@ import {
 
 import { Link } from "react-router-dom";
 
-import {
-  AddCircle,
-  GppGood,
-  RemoveCircle,
-  SecurityUpdateGood,
-} from "@mui/icons-material";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { GppGood, SecurityUpdateGood } from "@mui/icons-material";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, addToWishlist } from "../../redux/apiCalls";
-import Products from "../../components/Products";
 import Review from "../../components/Review";
 import Question from "../../components/Question";
 
@@ -135,13 +129,11 @@ const Product = () => {
                 value={quantity}
                 size="small"
                 variant="outlined"
-                helperText={
-                  (quantity < 1 ||
-                    quantity > product.inStock ||
-                    quantity % 1 !== 0) &&
-                  "Quantity must be greater than 0 & below stock"
-                }
-                onChange={(e) => setQuantity(e.target.valueAsNumber)}
+                onChange={(e) => {
+                  const value = e.target.valueAsNumber;
+                  const validQuantity = value >= 1 ? value : 1;
+                  setQuantity(validQuantity);
+                }}
                 sx={{ width: 100 }}
               />
               <Stack gap={1}>
