@@ -51,7 +51,12 @@ const Home = ({ cartOpen }) => {
             centered
           >
             <Tab label="Trending Now" value={1} />
-            {user && <Tab label="Followed Stores" value={2} />}
+            {user && (
+              <Tab
+                label="Followed Stores"
+                value={2}
+              />
+            )}
           </Tabs>
         </Box>
       </Box>

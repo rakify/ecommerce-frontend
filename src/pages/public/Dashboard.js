@@ -35,9 +35,6 @@ import MuiAppBar from "@mui/material/AppBar";
 import { Link } from "react-router-dom";
 import {
   Cancel,
-  ChevronLeft,
-  ChevronRight,
-  LocalFlorist,
   Logout,
   ShoppingBag,
 } from "@mui/icons-material";
