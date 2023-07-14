@@ -76,12 +76,7 @@ const ProductQuickView = ({ productId }) => {
   return (
     <>
       <Container maxWidth="xl">
-        <Stack
-          direction="column"
-          // sx={{ flexDirection: { xs: "column", sm: "row" } }}
-          spacing={2}
-          justifyContent="space-between"
-        >
+        <Stack direction="column" spacing={2} justifyContent="space-between">
           <Stack
             alignItems="center"
             justifyContent="space-between"
@@ -131,13 +126,11 @@ const ProductQuickView = ({ productId }) => {
                   value={quantity}
                   size="small"
                   variant="outlined"
-                  helperText={
-                    (quantity < 1 ||
-                      quantity > product.inStock ||
-                      quantity % 1 !== 0) &&
-                    "Quantity must be greater than 0 & below stock"
-                  }
-                  onChange={(e) => setQuantity(e.target.valueAsNumber)}
+                  onChange={(e) => {
+                    const value = e.target.valueAsNumber;
+                    const validQuantity = value >= 1 ? value : 1;
+                    setQuantity(validQuantity);
+                  }}
                   sx={{ width: 100 }}
                 />
               ) : (
