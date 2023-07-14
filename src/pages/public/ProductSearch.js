@@ -1,16 +1,27 @@
 import { Grid, Stack, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ProductComponent from "../../components/ProductComponent";
 import { searchProducts } from "../../redux/apiCalls";
 
 const ProductSearch = ({ query }) => {
   const [searchResults, setSearchResults] = useState([]);
+  const debounceTimerRef = useRef(null);
+
+  const performSearch = (searchQuery) => {
+    clearTimeout(debounceTimerRef.current);
+    debounceTimerRef.current = setTimeout(() => {
+      searchProducts(searchQuery).then((res) => setSearchResults(res));
+    }, 600);
+  };
+
   useEffect(() => {
-    searchProducts(query).then((res) =>
-      setSearchResults(res)
-    );
+    performSearch(query);
+    return () => {
+      clearTimeout(debounceTimerRef.current);
+    };
   }, [query]);
+
   return (
     <>
       <Typography variant="h3">Search results for {query}</Typography>
