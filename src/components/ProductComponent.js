@@ -2,21 +2,17 @@ import {
   FavoriteBorderOutlined,
   ShoppingCartOutlined,
   InfoOutlined,
-  Close,
   Cancel,
 } from "@mui/icons-material";
 import {
   Button,
-  ButtonBase,
   Chip,
   Dialog,
-  DialogActions,
   DialogContent,
   DialogTitle,
   Fade,
   Grid,
   IconButton,
-  Paper,
   Slide,
   Snackbar,
   Stack,
@@ -30,7 +26,6 @@ import { addToCart, addToWishlist } from "../redux/apiCalls";
 import { useDispatch } from "react-redux";
 import { forwardRef, useState } from "react";
 import { Link } from "react-router-dom";
-import Product, { default as ProductPage } from "../pages/public/Product";
 import ProductQuickView from "./ProductQuickView";
 
 const Transition = forwardRef(function Transition(props, ref) {

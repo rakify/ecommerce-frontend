@@ -3,11 +3,7 @@ import {
   Button,
   Typography,
   Card,
-  CardContent,
-  CardHeader,
-  Avatar,
   CardMedia,
-  CardActions,
   Stack,
   Container,
   TextField,
@@ -19,11 +15,10 @@ import {
 
 import { Link } from "react-router-dom";
 
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, addToWishlist } from "../redux/apiCalls";
-import Review from "./Review";
 
 function SlideTransition(props) {
   return <Slide {...props} direction="left" />;

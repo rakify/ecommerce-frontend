@@ -1,6 +1,6 @@
 import Select from "react-select";
 import { useEffect, useState } from "react";
-import { ArrowBackIos, PhotoCamera } from "@mui/icons-material";
+import { PhotoCamera } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getStorage,
@@ -11,9 +11,7 @@ import {
 import app from "../firebase";
 import {
   getCats,
-  getProductById,
   getProductsAsSeller,
-  getSellerProduct,
   updateSellerProduct,
 } from "../redux/apiCalls";
 import {
@@ -21,9 +19,7 @@ import {
   Avatar,
   Button,
   Checkbox,
-  Container,
   IconButton,
-  Link,
   MenuItem,
   Slide,
   Snackbar,
@@ -32,7 +28,6 @@ import {
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import { useParams } from "react-router-dom";
 
 function SlideTransition(props) {
   return <Slide {...props} direction="left" />;

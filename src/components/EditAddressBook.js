@@ -1,24 +1,9 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getStorage,
-  ref,
-  uploadBytesResumable,
-  getDownloadURL,
-} from "@firebase/storage";
-import app from "../firebase";
-import { sendNotification, updateUser } from "../redux/apiCalls";
+import { updateUser } from "../redux/apiCalls";
 import {
   Alert,
-  Avatar,
   Button,
-  Card,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-  IconButton,
   MenuItem,
   Slide,
   Snackbar,
@@ -26,7 +11,6 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { PhotoCamera } from "@mui/icons-material";
 import { Box } from "@mui/system";
 
 function SlideTransition(props) {

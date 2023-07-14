@@ -8,20 +8,8 @@ import {
   Clear,
 } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteCart, addToCart } from "../../redux/apiCalls";
-import {
-  Avatar,
-  Button,
-  Stack,
-  Typography,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogContentText,
-  DialogActions,
-  Slide,
-  IconButton,
-} from "@mui/material";
+import { addToCart } from "../../redux/apiCalls";
+import { Avatar, Button, Stack, Typography, IconButton } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
