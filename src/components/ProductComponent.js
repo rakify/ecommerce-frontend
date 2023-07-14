@@ -108,9 +108,9 @@ const ProductComponent = ({ item }) => {
             "& .details": {
               opacity: 1,
               height: 30,
-              webkitTransition: "all 1s linear",
-              mozTransition: "all 1s linear",
-              transition: "all 1s linear",
+              webkitTransition: "all 0.5s linear",
+              mozTransition: "all 0.5s linear",
+              transition: "all 0.5s linear",
               overflow: "hidden",
             },
           },
